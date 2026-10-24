@@ -83,3 +83,9 @@ RUNNING WITH ROTTWEILERS branding and graphical assets are subject to separate t
 RUNNING WITH ROTTWEILERS
 
 GitHub: https://github.com/runningwithrottweilers
+
+## Screenshots
+
+### X-ARCH Theme Studio — Dashboard
+
+![X-ARCH Theme Studio Dashboard](docs/screenshots/dashboard.png)
