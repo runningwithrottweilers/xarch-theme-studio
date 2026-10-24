@@ -1,0 +1,24 @@
+# Rust build artifacts
+/target/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+
+# Editors
+.idea/
+.vscode/
+*~
+*.swp
+
+# Temporary files and backups
+*.log
+*.tmp
+*.bak
+*.tar.gz
+.DS_Store
+
+# Isolated test installation
+/.install-test/
