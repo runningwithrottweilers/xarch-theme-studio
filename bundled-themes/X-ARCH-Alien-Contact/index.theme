@@ -1,0 +1,26 @@
+[Icon Theme]
+Name=X-ARCH Alien Contact
+Comment=Alien Contact - organic extraterrestrial dossier icon system
+Inherits=Colloid-Grey-Dark,breeze-dark,breeze,hicolor
+Directories=scalable/places,scalable/mimetypes,scalable/apps
+
+[scalable/places]
+Size=64
+Type=Scalable
+MinSize=16
+MaxSize=512
+Context=Places
+
+[scalable/mimetypes]
+Size=64
+Type=Scalable
+MinSize=16
+MaxSize=512
+Context=MimeTypes
+
+[scalable/apps]
+Size=64
+Type=Scalable
+MinSize=16
+MaxSize=512
+Context=Applications

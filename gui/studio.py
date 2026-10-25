@@ -7,6 +7,7 @@ import subprocess
 import sys
 from functools import lru_cache
 from theme_import import install as install_theme
+from bundled_themes import install_missing
 import gi
 gi.require_version('Gtk', '4.0')
 from gi.repository import Gtk, Gdk, Gio, GLib
@@ -216,8 +217,19 @@ def all_themes():
 
 class Studio(Gtk.Application):
  def __init__(self):
-  super().__init__(application_id='online.xarch.ThemeStudio',flags=Gio.ApplicationFlags.FLAGS_NONE)
+  super().__init__(application_id=('io.github.runningwithrottweilers.XArchThemeStudio' if pathlib.Path('/.flatpak-info').exists() else 'online.xarch.ThemeStudio'),flags=Gio.ApplicationFlags.FLAGS_NONE)
   self.lang=read_language();self.page='dashboard';self.selected=None;self.cards={};self.navs={}
+
+  for source in (
+   ROOT / "bundled-themes",
+   ROOT / "share/xarch-theme-studio/bundled-themes",
+   pathlib.Path("/app/share/xarch-theme-studio/bundled-themes"),
+   HOME / ".local/share/xarch-theme-studio/bundled-themes",
+  ):
+   if source.is_dir():
+    install_missing(source, ICONS)
+    break
+
  def t(self,key):return TEXT.get(key,key) if self.lang=='pl' else key
  def label(self,parent,value,style=None,wrap=True):
   w=Gtk.Label(label=str(value),xalign=0);w.set_wrap(wrap)

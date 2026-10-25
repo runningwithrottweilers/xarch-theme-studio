@@ -76,6 +76,7 @@ or exit 1
 mkdir -p "$bindir" "$desktopdir" "$icondir"; or exit 1
 mkdir "$datadir"; or exit 1
 cp -a "$root/gui" "$datadir/gui"; or exit 1
+cp -a "$root/bundled-themes" "$datadir/bundled-themes"; or exit 1
 install -m 755 "$root/target/release/xarch-theme-studio" "$bin"; or exit 1
 cp "$root/gui/assets/rottweilers.png" "$icon"; or exit 1
 

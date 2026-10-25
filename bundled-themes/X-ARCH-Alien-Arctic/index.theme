@@ -1,0 +1,12 @@
+[Icon Theme]
+Name=X-ARCH Alien Arctic — Extraterrestrial
+Comment=Premium alien specimen capsule icon collection
+Inherits=Colloid-Grey-Dark,breeze-dark,breeze,hicolor
+Directories=scalable/places
+
+[scalable/places]
+Size=64
+Type=Scalable
+MinSize=16
+MaxSize=512
+Context=Places
