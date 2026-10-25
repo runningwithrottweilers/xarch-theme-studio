@@ -1,17 +1,21 @@
-# Artwork and Branding License
+# Artwork and Branding
 
-The MIT license in LICENSE applies to the application source code and does not automatically grant rights to third-party artwork or branding.
+## Application source code
+The application source code is distributed under the MIT license.
 
-## RUNNING WITH ROTTWEILERS
+## AI-generated artwork
+The graphical assets in gui/assets were generated using OpenAI ChatGPT and Google Gemini at the direction of the project maintainer.
 
-The RUNNING WITH ROTTWEILERS name, logo and brand identity are reserved.
-No permission to reuse these brand assets is granted by the MIT software license.
+These assets are distributed with the application by the project maintainer, subject to applicable law, third-party rights, and the terms of the tools used to generate them.
 
-## Other graphical assets
+This statement does not assert exclusive copyright ownership of AI-generated material.
 
-The rights and redistribution permissions for the remaining graphical assets must be verified individually before public release.
-No license for those assets is granted by this document.
+## RUNNING WITH ROTTWEILERS branding
+The RUNNING WITH ROTTWEILERS name, logo, and brand identity are reserved.
+The MIT software license does not grant permission to use these brand identifiers independently.
+
+## Third-party rights
+Any recognizable third-party trademarks or protected material remain subject to their respective owners rights.
 
 ## Contributions
-
-Contributors must have the necessary rights to submit any artwork included in a contribution.
+Contributors must have the necessary rights and permissions for submitted artwork.
