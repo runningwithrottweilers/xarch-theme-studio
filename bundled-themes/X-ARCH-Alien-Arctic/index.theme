@@ -2,7 +2,7 @@
 Name=X-ARCH Alien Arctic — Extraterrestrial
 Comment=Premium alien specimen capsule icon collection
 Inherits=Colloid-Grey-Dark,breeze-dark,breeze,hicolor
-Directories=scalable/places
+Directories=scalable/places,scalable/apps,scalable/mimetypes
 
 [scalable/places]
 Size=64
@@ -10,3 +10,17 @@ Type=Scalable
 MinSize=16
 MaxSize=512
 Context=Places
+
+[scalable/apps]
+Size=64
+Type=Scalable
+MinSize=16
+MaxSize=512
+Context=Applications
+
+[scalable/mimetypes]
+Size=64
+Type=Scalable
+MinSize=16
+MaxSize=512
+Context=MimeTypes

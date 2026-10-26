@@ -605,7 +605,7 @@ class Studio(Gtk.Application):
   p.append(logo)
   self.label(p,"RUNNING WITH ROTTWEILERS","accent")
   self.label(p,"X-ARCH Theme Studio","h1")
-  self.label(p,"VERSION 0.1.0-beta","accent")
+  self.label(p,"VERSION 0.1.2-beta","accent")
   p.append(self.art_image(ASSETS/"mission-banner.jpg",950,150))
   self.label(p,"AUTOR / CREATED BY" if pl else "CREATED BY","accent")
   self.label(p,"Artur Maciejewski","h2")
