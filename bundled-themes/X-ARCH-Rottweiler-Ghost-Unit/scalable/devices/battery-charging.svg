@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><title>battery-charging</title>
+<defs><linearGradient id="ice" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ecfaff"/><stop offset="1" stop-color="#5eb7d8"/></linearGradient></defs>
+<path d="M42 35 H214 L235 59 V197 L214 221 H42 L21 197 V59 Z" fill="#1a2a34" stroke="#a2b8c5" stroke-width="4"/><path d="M45 59 H211 V194 H45 Z" fill="#08141e" stroke="#44677b" stroke-width="3"/><path d="M78 225 H178" stroke="#b1dce9" stroke-width="4"/><path d="M47 77 L70 51 M209 77 L186 51 M47 180 L70 204 M209 180 L186 204" fill="none" stroke="#7ac9e3" stroke-width="3"/>
+<g transform="translate(128 132)" fill="none" stroke="url(#ice)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M-40 0 Q0 -39 40 0 Q0 39 -40 0 Z"/><circle r="14"/><path d="M0 -9 V9 M-9 0 H9"/></g>
+<g fill="none" stroke="#557c90" stroke-width="2"><path d="M66 190 v8"/><path d="M78 190 v6"/><path d="M90 190 v11"/><path d="M102 190 v13"/><path d="M114 190 v9"/><path d="M126 190 v12"/><path d="M138 190 v14"/><path d="M150 190 v15"/><path d="M162 190 v8"/><path d="M174 190 v6"/></g></svg>

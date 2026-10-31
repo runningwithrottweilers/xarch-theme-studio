@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+<title>Area 51 Restricted — SIGNAL</title>
+<defs><linearGradient id="shell" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#113d3b"/><stop offset="1" stop-color="#051415"/></linearGradient></defs>
+<!-- Futuristic containment pod: not a traditional office folder -->
+<path d="M35 53H95L110 42H195L225 68L237 94V191L209 218H48L20 191V91Z" fill="url(#shell)" stroke="#50dbab" stroke-width="4"/>
+<path d="M39 85H217L225 100V183L201 206H56L31 183V100Z" fill="#071f21" stroke="#237b68" stroke-width="3"/>
+<path d="M33 105H223M49 196H207" stroke="#3fdba4" stroke-width="2" opacity=".75"/>
+<path d="M39 69H86M170 69H207M45 114V174M211 114V174" stroke="#79ffcc" stroke-width="3"/>
+<circle cx="128" cy="146" r="48" fill="#0d302c" stroke="#286d5e" stroke-width="2"/>
+<circle cx="128" cy="146" r="41" fill="none" stroke="#4be3a9" stroke-width="2" stroke-dasharray="5 5"/>
+<g transform="translate(128 145)"><path d="M0 -27V16M-16 0L0 17L16 0" stroke="#83ffcf" stroke-width="5" fill="none"/><path d="M-28 27H28" stroke="#83ffcf" stroke-width="4"/><path d="M-36 -18Q0 -47 36 -18" fill="none" stroke="#3a997c" stroke-width="3"/></g>
+<rect x="64" y="49" width="128" height="26" rx="5" fill="#082526" stroke="#57e2b1" stroke-width="2"/>
+<text x="128" y="66" font-family="DejaVu Sans, sans-serif" font-weight="bold" font-size="12" fill="#aaffdc" text-anchor="middle">SIGNAL</text>
+<path d="M51 214H75M181 214H205" stroke="#c8ff82" stroke-width="3"/>
+</svg>

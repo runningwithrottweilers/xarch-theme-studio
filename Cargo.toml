@@ -1,6 +1,12 @@
 [package]
 name = "xarch-theme-studio"
-version = "0.1.2-beta"
+version = "0.5.0-beta"
 edition = "2021"
 
 [dependencies]
+
+zip = "0.6.6"
+tar = "0.4"
+flate2 = "1"
+xz2 = "0.1"
+tempfile = "3"

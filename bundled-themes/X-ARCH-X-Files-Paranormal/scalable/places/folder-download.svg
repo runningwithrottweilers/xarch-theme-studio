@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+<defs><linearGradient id="body" x2="0.9" y2="1"><stop stop-color="#252439"/><stop offset="1" stop-color="#090d1a"/></linearGradient><radialGradient id="glow"><stop stop-color="#6744ac" stop-opacity=".55"/><stop offset="1" stop-color="#6744ac" stop-opacity="0"/></radialGradient></defs>
+<!-- Paranormal dossier: slanted split envelope, torn-edge seam, spectral ring -->
+<path d="M19 70 L42 42 H113 L127 59 H219 L238 80 L231 214 L211 230 H41 L18 207 Z" fill="url(#body)" stroke="#7c69b2" stroke-width="3"/>
+<path d="M21 98 L65 90 L91 101 L129 87 L170 100 L234 91 L231 210 L209 226 H43 L20 205 Z" fill="#121625" stroke="#7f92bf" stroke-width="2"/>
+<path d="M34 112 L72 104 L95 116 L131 102 L173 115 L218 104" fill="none" stroke="#a28cda" stroke-width="2" stroke-dasharray="9 6"/>
+<ellipse cx="128" cy="158" rx="75" ry="70" fill="url(#glow)"/>
+<circle cx="128" cy="157" r="52" fill="none" stroke="#8b6ec9" stroke-width="2" opacity=".55" stroke-dasharray="2 9"/>
+<g transform="translate(128 158)"><ellipse rx="32" ry="35" fill="none" stroke="#b7a0ff" stroke-width="5"/><ellipse rx="18" ry="26" fill="none" stroke="#79dfff" stroke-width="3"/><path d="M0 -20 V20 M-12 9 L0 22 L12 9" fill="none" stroke="#e6dcff" stroke-width="4"/></g>
+<path d="M43 65 L114 65" stroke="#8ce4ff" stroke-width="3" opacity=".75"/>
+<text x="128" y="203" font-family="DejaVu Sans,sans-serif" font-size="12" font-weight="bold" text-anchor="middle" letter-spacing="1.5" fill="#c9c0ee">RECEIVED</text>
+<path d="M47 216 H96 M160 216 H208" stroke="#6b91b5" stroke-width="2" opacity=".65"/>
+</svg>

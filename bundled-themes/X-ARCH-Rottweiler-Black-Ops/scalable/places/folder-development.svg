@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" viewBox="0 0 300 240" width="300" height="240"><ns0:path d="M24 55Q24 40 40 40H97L119 59H257Q275 59 275 78V203Q275 220 257 220H40Q24 220 24 203Z" fill="#921b27" stroke="#f14654" stroke-width="5" /><ns0:path d="M28 99H271V202Q271 216 256 216H43Q28 216 28 202Z" fill="#220b10" /><ns0:path d="M37 107H263" stroke="#d93c49" stroke-width="3" /><ns0:rect x="99" y="108" width="102" height="58" rx="9" fill="#13181e" stroke="#ed4856" stroke-width="3" /><ns0:text x="150" y="143" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="bold" fill="#f6e5e7">CODE</ns0:text><ns0:g id="rottweiler-emblem" transform="translate(5 55) scale(0.48)"><ns0:path d="M82 84 105 65 121 88 135 99 165 99 179 88 195 65 218 84 207 151 185 181 165 195 135 195 115 181 93 151Z" fill="#111318" stroke="#c32b39" stroke-width="4" stroke-linejoin="round" />
+<ns0:path d="M110 133 137 144 125 152 110 145Z M190 133 163 144 175 152 190 145Z" fill="#ff334b" />
+<ns0:path d="M133 162 150 152 167 162 160 174 140 174Z" fill="#a6a6a6" />
+<ns0:path d="M127 179 138 187 150 180 162 187 173 179 166 193 134 193Z" fill="#07080a" stroke="#ddd" stroke-width="2" />
+<ns0:path d="M135 183 141 193 147 183 M153 183 159 193 165 183" fill="#fff" />
+</ns0:g></ns0:svg>

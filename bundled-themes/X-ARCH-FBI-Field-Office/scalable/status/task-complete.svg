@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 300 256">
+      <title>FBI Field Office - task-complete</title><path d="M150 24L246 65V133Q237 202 150 235Q63 202 54 133V65Z" fill="#142634" stroke="#8fa6b5" stroke-width="5"/>
+      <path d="M150 41L226 75V130Q218 187 150 216Q82 187 74 130V75Z" fill="none" stroke="#304f65" stroke-width="3"/>
+      <g transform="translate(112 125) scale(0.68)">
+      <circle r="33" fill="#0a141c" stroke="#8fa6b5" stroke-width="3"/>
+      <circle r="26" fill="none" stroke="#304f65" stroke-width="2"/>
+      <path d="M-12 -6 L0 -19 L12 -6 L9 15 L0 21 L-9 15Z" fill="#304f65" stroke="#eaf1f5" stroke-width="2"/>
+      <path d="M-6 0H6 M0 -7V13" stroke="#eaf1f5" stroke-width="2"/>
+      <text y="-23" text-anchor="middle" font-size="8" font-family="sans-serif" font-weight="bold" fill="#eaf1f5">FBI</text>
+      </g> <rect x="137" y="110" width="94" height="46" rx="6" fill="#0a141c" stroke="#8fa6b5" stroke-width="2"/>
+      <text x="184" y="139" text-anchor="middle" font-family="monospace" font-weight="bold" font-size="17" fill="#eaf1f5">DONE</text></svg>

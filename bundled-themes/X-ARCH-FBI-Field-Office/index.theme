@@ -1,0 +1,41 @@
+[Icon Theme]
+Name = FBI Field Office
+Comment = X-ARCH CLASSIFIED SERIES - user-local icon theme
+Inherits = breeze-dark,breeze,hicolor
+Directories = scalable/actions,scalable/devices,scalable/mimetypes,scalable/places,scalable/status
+
+[scalable/actions]
+Size = 128
+Type = Scalable
+MinSize = 16
+MaxSize = 512
+Context = Actions
+
+[scalable/devices]
+Size = 128
+Type = Scalable
+MinSize = 16
+MaxSize = 512
+Context = Devices
+
+[scalable/mimetypes]
+Size = 128
+Type = Scalable
+MinSize = 16
+MaxSize = 512
+Context = Mimetypes
+
+[scalable/places]
+Size = 128
+Type = Scalable
+MinSize = 16
+MaxSize = 512
+Context = Places
+
+[scalable/status]
+Size = 128
+Type = Scalable
+MinSize = 16
+MaxSize = 512
+Context = Status
+

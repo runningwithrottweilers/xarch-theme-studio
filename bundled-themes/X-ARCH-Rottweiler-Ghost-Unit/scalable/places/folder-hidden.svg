@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><title>folder-hidden</title>
+<defs><linearGradient id="ice" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ecfaff"/><stop offset="1" stop-color="#5eb7d8"/></linearGradient></defs>
+<path d="M56 20 H200 L240 60 V184 L200 236 H56 L16 184 V60 Z" fill="#17232e" stroke="#839ba9" stroke-width="4"/><path d="M65 33 H191 L226 68 V177 L191 223 H65 L30 177 V68 Z" fill="#09131c" stroke="#3c5869" stroke-width="2"/><path d="M47 77 L70 51 M209 77 L186 51 M47 180 L70 204 M209 180 L186 204" fill="none" stroke="#7ac9e3" stroke-width="3"/>
+<g transform="translate(128 132)" fill="none" stroke="url(#ice)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M-29 -32 L29 -32 L29 32 L-29 32 Z M-16 -16 L16 -16 L16 16 L-16 16 Z M-40 0 H-29 M29 0 H40"/></g>
+<g fill="none" stroke="#557c90" stroke-width="2"><path d="M66 190 v12"/><path d="M78 190 v8"/><path d="M90 190 v6"/><path d="M102 190 v5"/><path d="M114 190 v10"/><path d="M126 190 v13"/><path d="M138 190 v14"/><path d="M150 190 v9"/><path d="M162 190 v12"/><path d="M174 190 v8"/></g></svg>

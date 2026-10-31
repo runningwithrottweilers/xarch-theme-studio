@@ -1,0 +1,33 @@
+[Icon Theme]
+Name=X-ARCH Rottweiler Black Ops
+Comment=RUNNING WITH ROTTWEILERS - Black Ops icon collection
+Inherits=breeze-dark,breeze,hicolor
+Directories=scalable/places,scalable/mimetypes,scalable/actions,scalable/devices
+
+[scalable/places]
+Size=64
+MinSize=16
+MaxSize=256
+Type=Scalable
+Context=Places
+
+[scalable/mimetypes]
+Size=64
+MinSize=16
+MaxSize=256
+Type=Scalable
+Context=MimeTypes
+
+[scalable/actions]
+Size=64
+MinSize=16
+MaxSize=256
+Type=Scalable
+Context=Actions
+
+[scalable/devices]
+Size=64
+MinSize=16
+MaxSize=256
+Type=Scalable
+Context=Devices

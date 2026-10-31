@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><title>TOP SECRET ARCHIVE - folder</title><path d="M18 63 Q18 47 34 47 H87 L108 67 H218 Q237 67 237 86 V207 Q237 224 220 224 H35 Q18 224 18 207 Z" fill="#75212d" stroke="#ed5a62" stroke-width="5"/>
+        <path d="M22 108 H233 V205 Q233 220 217 220 H38 Q22 220 22 205 Z" fill="#1c1015"/>
+        <path d="M32 117 H223" stroke="#b93a47" stroke-width="3"/><g transform="translate(79 164) scale(0.85)">
+    <path d="M0 -29 L24 -18 L24 12 Q16 27 0 34 Q-16 27 -24 12 L-24 -18 Z" fill="#3b1118" stroke="#f34e5c" stroke-width="3"/>
+    <path d="M-11 1 L-3 9 L13 -9" fill="none" stroke="#ffc0b8" stroke-width="4" stroke-linecap="round"/>
+    </g><rect x="125" y="143" width="94" height="45" rx="5" fill="#42121c" stroke="#f05260" stroke-width="2"/><text x="172" y="171" font-family="monospace" font-size="17" font-weight="bold" text-anchor="middle" fill="#ffe2df">FOLDE</text><path d="M36 206 H220" stroke="#a43240" stroke-width="2" stroke-dasharray="6 5"/></svg>

@@ -1,0 +1,34 @@
+[Icon Theme]
+Name = Pentagon Defense V2
+Comment = X-ARCH CLASSIFIED SERIES - user-local icon theme
+Inherits = breeze-dark,breeze,hicolor
+Directories = scalable/actions,scalable/devices,scalable/mimetypes,scalable/places
+
+[scalable/actions]
+Size = 128
+Type = Scalable
+MinSize = 16
+MaxSize = 512
+Context = Actions
+
+[scalable/devices]
+Size = 128
+Type = Scalable
+MinSize = 16
+MaxSize = 512
+Context = Devices
+
+[scalable/mimetypes]
+Size = 128
+Type = Scalable
+MinSize = 16
+MaxSize = 512
+Context = Mimetypes
+
+[scalable/places]
+Size = 128
+Type = Scalable
+MinSize = 16
+MaxSize = 512
+Context = Places
+

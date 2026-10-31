@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><title>TOP SECRET ARCHIVE - drive-removable-media</title><rect x="39" y="48" width="178" height="160" rx="16" fill="#252126" stroke="#d64b5a" stroke-width="6"/>
+        <rect x="55" y="66" width="146" height="98" rx="7" fill="#120d12" stroke="#6b313d" stroke-width="3"/><g transform="translate(128 110) scale(1)">
+    <path d="M0 -29 L24 -18 L24 12 Q16 27 0 34 Q-16 27 -24 12 L-24 -18 Z" fill="#3b1118" stroke="#f34e5c" stroke-width="3"/>
+    <path d="M-11 1 L-3 9 L13 -9" fill="none" stroke="#ffc0b8" stroke-width="4" stroke-linecap="round"/>
+    </g><rect x="65" y="173" width="126" height="25" rx="3" fill="#66212c"/><text x="128" y="191" text-anchor="middle" font-family="monospace" font-weight="bold" font-size="15" fill="#ffe0db">RM</text></svg>

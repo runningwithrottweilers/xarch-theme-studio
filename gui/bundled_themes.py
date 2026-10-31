@@ -29,8 +29,10 @@ def install_missing(source, destination):
     source = Path(source)
     destination = Path(destination)
     installed = []
-    for name in THEMES:
-        src = source / name
+    for src in sorted(source.iterdir()):
+        if not src.is_dir() or src.is_symlink():
+            continue
+        name = src.name
         dst = destination / name
         if not (src / "index.theme").is_file():
             continue
@@ -46,14 +48,14 @@ def install_missing(source, destination):
         folder = dst / "scalable/places/folder.svg"
         alias = dst / "scalable/places/inode-directory.svg"
         if folder.is_file() and not folder.is_symlink() and not alias.exists() and not alias.is_symlink():
-            if sha256(folder) == ORIGINAL_HASHES[name]:
+            if name in ORIGINAL_HASHES and sha256(folder) == ORIGINAL_HASHES[name]:
                 shutil.copy2(folder, alias)
         index = dst / "index.theme"
         if not index.is_file() or index.is_symlink():
             continue
         old = index.read_text(encoding="utf-8")
         old_line = "Directories=scalable/places"
-        if sha256(index) != ORIGINAL_INDEX_HASHES[name]:
+        if name not in ORIGINAL_INDEX_HASHES or sha256(index) != ORIGINAL_INDEX_HASHES[name]:
             continue
         if old.count(old_line) != 1:
             continue

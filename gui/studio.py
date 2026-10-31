@@ -6,7 +6,6 @@ import re
 import subprocess
 import sys
 from functools import lru_cache
-from theme_import import install as install_theme
 from bundled_themes import install_missing
 import gi
 gi.require_version('Gtk', '4.0')
@@ -74,7 +73,7 @@ TEXT = {
  'Install unpacked folder':'Zainstaluj rozpakowany katalog',
  'Installed themes appear automatically in the gallery.':'Zainstalowane motywy automatycznie pojawią się w galerii.',
  'Choose an icon pack downloaded from KDE Store, GNOME-Look or another source.':'Wybierz zestaw ikon pobrany z KDE Store, GNOME-Look lub innego źródła.',
- 'Your existing icon themes are backed up before replacement. Import does not activate the theme.':'Istniejące motywy są zabezpieczane przed zastąpieniem. Import nie aktywuje motywu.',
+ 'Existing icon themes are never overwritten. Import does not activate the theme.':'Istniejące motywy ikon nie są nadpisywane. Import nie aktywuje motywu.',
  'Select archive':'Wybierz archiwum','Select directory':'Wybierz katalog','Import selected theme?':'Zaimportować wybrany motyw?',
  'Import complete':'Import zakończony','Open gallery':'Otwórz galerię','Import failed':'Import nieudany',
  'Set a custom icon for one folder':'Ustaw własną ikonę pojedynczego folderu',
@@ -179,7 +178,7 @@ def theme_root(theme):
  return ICONS/theme
 
 @lru_cache(maxsize=256)
-def icon_paths(theme):
+def python_icon_paths(theme):
  root=theme_root(theme)
  if not root.is_dir():return ()
  # Support freedesktop icon packs in scalable/, 16x16/, 48x48/, 128x128/ etc.
@@ -198,22 +197,115 @@ def icon_paths(theme):
   unique.setdefault(f.stem,f)
  return tuple(unique.values())
 
+@lru_cache(maxsize=256)
+def icon_paths(theme):
+ try:
+  result=subprocess.run(
+   [str(BIN),"list-icons",theme],
+   capture_output=True,text=True,timeout=30
+  )
+  if result.returncode==0:
+   return tuple(pathlib.Path(x) for x in result.stdout.splitlines() if x)
+ except (OSError,subprocess.TimeoutExpired):
+  pass
+ return python_icon_paths(theme)
+
 def preview_icon(theme,name='folder'):
  paths=icon_paths(theme)
  for p in paths:
   if p.stem==name:return p
  return paths[0] if paths else None
 
+@lru_cache(maxsize=256)
+def rust_theme_name(theme):
+ try:
+  result=subprocess.run([str(BIN),"theme-info",theme],capture_output=True,text=True,timeout=5)
+  if result.returncode==0:
+   for line in result.stdout.splitlines():
+    if line.startswith("Name="):
+     name=line[5:].strip()
+     if name:return name
+ except (OSError,subprocess.TimeoutExpired):
+  pass
+ return theme.replace("-"," ")
+
+
 def all_themes():
- base={x[1]:x for x in BUILTINS if (ICONS/x[1]/'index.theme').is_file()}
- for root in (ICONS,HOME/'.icons',pathlib.Path('/usr/share/icons')):
-  if not root.is_dir():continue
-  try:folders=sorted(root.iterdir())
-  except OSError:continue
-  for p in folders:
-   if p.is_dir() and (p/'index.theme').is_file() and p.name not in base:
-    base[p.name]=(p.name.replace('-',' '),p.name,'#76cbd6')
- return list(base.values())
+ base={x[1]:x for x in BUILTINS if (ICONS/x[1]/"index.theme").is_file()}
+ def fallback():
+  for root in (ICONS,HOME/".icons",pathlib.Path("/usr/share/icons")):
+   if not root.is_dir():continue
+   try:folders=sorted(root.iterdir())
+   except OSError:continue
+   for p in folders:
+    if p.is_dir() and (p/"index.theme").is_file() and p.name not in base:
+     base[p.name]=(p.name.replace("-"," "),p.name,"#76cbd6")
+  return list(base.values())
+ try:
+  result=subprocess.run([str(BIN),"list-installed"],capture_output=True,text=True,timeout=15)
+  if result.returncode!=0:return fallback()
+  for name in result.stdout.splitlines():
+   name=name.strip()
+   if not name or name in base:continue
+   if not re.fullmatch(r"[A-Za-z0-9._+-]+",name):continue
+   base[name]=(rust_theme_name(name),name,"#76cbd6")
+  return list(base.values())
+ except (OSError,subprocess.TimeoutExpired):
+  return fallback()
+
+
+def gallery_cover(code):
+ special={'X-ARCH-Alien-Crimson':'collection-alien-crimson.png','X-ARCH-Alien-Arctic':'collection-alien-arctic.png'}
+ if code in special:return ASSETS / special[code]
+ png=ASSETS / ('cover-'+code+'.png')
+ if png.is_file():return png
+ return ASSETS / ('cover-'+code+'.jpg')
+
+
+# X-ARCH STAGE 5C RUST IMPORT
+def find_theme_installer():
+    """Locate the separate Rust importer in development or packaged layouts."""
+    import os
+    override = os.environ.get('XARCH_THEME_INSTALLER')
+    if override:
+        candidate = pathlib.Path(override).expanduser()
+        if candidate.is_file() and os.access(candidate, os.X_OK):
+            return candidate
+        raise RuntimeError(f'XARCH_THEME_INSTALLER is not executable: {candidate}')
+
+    candidates = []
+    if (ROOT / 'Cargo.toml').is_file():
+        candidates.extend((
+            ROOT / 'target/debug/xarch-theme-install',
+            ROOT / 'target/release/xarch-theme-install',
+        ))
+    candidates.extend((
+        BIN.parent / 'xarch-theme-install',
+        ROOT / 'usr/bin/xarch-theme-install',
+        ROOT / 'bin/xarch-theme-install',
+        pathlib.Path('/app/bin/xarch-theme-install'),
+        HOME / '.local/bin/xarch-theme-install',
+        pathlib.Path('/usr/local/bin/xarch-theme-install'),
+        pathlib.Path('/usr/bin/xarch-theme-install'),
+    ))
+    for candidate in candidates:
+        if candidate.is_file() and os.access(candidate, os.X_OK):
+            return candidate
+    raise RuntimeError('Rust theme installer not found. Build xarch-theme-install or include it in the application package.')
+
+def rust_install_theme(source, destination):
+    installer = find_theme_installer()
+    if not destination.is_dir() or destination.is_symlink():
+        raise RuntimeError('Katalog ikon nie istnieje lub jest dowiązaniem. Import wstrzymany.')
+    result = subprocess.run([str(installer), str(source), str(destination)],
+                            capture_output=True, text=True, timeout=180)
+    if result.returncode != 0:
+        raise RuntimeError((result.stderr or result.stdout or 'Nieznany błąd Rust').strip())
+    names = [line.removeprefix('INSTALLED: ').strip() for line in result.stdout.splitlines()
+             if line.startswith('INSTALLED: ')]
+    if not names:
+        raise RuntimeError('Rust nie zwrócił nazw zainstalowanych motywów')
+    return names
 
 class Studio(Gtk.Application):
  def __init__(self):
@@ -330,8 +422,12 @@ class Studio(Gtk.Application):
    b=Gtk.Button()
    b.add_css_class('nav')
    content=Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL,spacing=10)
-   img=Gtk.Image.new_from_icon_name(nav_icons[key])
-   img.set_pixel_size(18)
+   icon_file=ASSETS / "fbi-nav" / (key + ".svg")
+   if icon_file.is_file():
+    img=Gtk.Image.new_from_file(str(icon_file))
+   else:
+    img=Gtk.Image.new_from_icon_name(nav_icons[key])
+   img.set_pixel_size(20)
    img.add_css_class('nav-icon')
    content.append(img)
    text=Gtk.Label(label=self.t(title),xalign=0)
@@ -414,7 +510,7 @@ class Studio(Gtk.Application):
  def theme_tile(self,flow,theme,i,cols=3):
   name,code,color=theme
   content=Gtk.Box(orientation=Gtk.Orientation.VERTICAL,spacing=6)
-  art=(ASSETS / {'X-ARCH-Alien-Crimson':'collection-alien-crimson.png','X-ARCH-Alien-Arctic':'collection-alien-arctic.png'}.get(code,'cover-'+code+'.jpg'))
+  art=gallery_cover(code)
   if art.is_file():
    picture=Gtk.Picture.new_for_filename(str(art))
    picture.set_content_fit(Gtk.ContentFit.CONTAIN)
@@ -503,7 +599,7 @@ class Studio(Gtk.Application):
   self.label(self.preview,self.t('LIVE ICON PREVIEW'),'accent')
   self.label(self.preview,name,'h2')
   self.label(self.preview,code,'micro')
-  art=(ASSETS / {'X-ARCH-Alien-Crimson':'collection-alien-crimson.png','X-ARCH-Alien-Arctic':'collection-alien-arctic.png'}.get(code,'cover-'+code+'.jpg'))
+  art=gallery_cover(code)
   if art.is_file():
    picture=Gtk.Picture.new_for_filename(str(art))
    picture.set_content_fit(Gtk.ContentFit.CONTAIN)
@@ -539,7 +635,7 @@ class Studio(Gtk.Application):
  def page_import(self,page):
   self.heading(page,'ACQUISITION  /  EXTERNAL PACKS','Import an icon pack','Choose an icon pack downloaded from KDE Store, GNOME-Look or another source.')
   p=self.card(page,'card-strong');p.append(self.art_image(ASSETS/'fbi-banner.jpg',950,235))
-  self.label(p,self.t('Your existing icon themes are backed up before replacement. Import does not activate the theme.'),'muted')
+  self.label(p,self.t('Existing icon themes are never overwritten. Import does not activate the theme.'),'muted')
   self.btn(p,'Install ZIP / TAR archive',self.choose_archive,'primary')
   self.btn(p,'Install unpacked folder',lambda:self.choose_folder(self.import_selected))
   self.label(p,self.t('Installed themes appear automatically in the gallery.'),'muted')
@@ -555,11 +651,8 @@ class Studio(Gtk.Application):
  def import_selected(self,path):self.confirm('Import selected theme?',str(path),lambda:self.import_now(path))
  def import_now(self,path):
   try:
-   names=install_theme(path,ICONS,HOME/'.local/state/xarch-theme-studio/backups')
+   names=rust_install_theme(path,ICONS)
    icon_paths.cache_clear();self.alert('Import complete',', '.join(names));self.navigate('gallery')
-   if names:
-    theme=next((t for t in all_themes() if t[1]==names[0]),None)
-    if theme:self.select_theme(theme)
   except Exception as e:self.alert('Import failed',str(e))
  def page_folder(self,page):
   self.heading(page,'FOLDER LAB','Set a custom icon for one folder','Select a folder, then choose a theme and icon.')
@@ -605,7 +698,7 @@ class Studio(Gtk.Application):
   p.append(logo)
   self.label(p,"RUNNING WITH ROTTWEILERS","accent")
   self.label(p,"X-ARCH Theme Studio","h1")
-  self.label(p,"VERSION 0.1.2-beta","accent")
+  self.label(p,"VERSION 0.5.0-beta","accent")
   p.append(self.art_image(ASSETS/"mission-banner.jpg",950,150))
   self.label(p,"AUTOR / CREATED BY" if pl else "CREATED BY","accent")
   self.label(p,"Artur Maciejewski","h2")

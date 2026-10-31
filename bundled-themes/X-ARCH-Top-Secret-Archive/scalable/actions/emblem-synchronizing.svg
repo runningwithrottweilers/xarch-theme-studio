@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><title>TOP SECRET ARCHIVE - emblem-synchronizing</title><path d="M128 23 L214 63 V144 Q205 198 128 230 Q51 198 42 144 V63 Z" fill="#261219" stroke="#e14e5b" stroke-width="6"/>
+        <path d="M128 40 L198 72 V142 Q191 184 128 211 Q65 184 58 142 V72 Z" fill="#4a1924"/><g transform="translate(128 115) scale(1.15)">
+    <path d="M0 -29 L24 -18 L24 12 Q16 27 0 34 Q-16 27 -24 12 L-24 -18 Z" fill="#3b1118" stroke="#f34e5c" stroke-width="3"/>
+    <path d="M-11 1 L-3 9 L13 -9" fill="none" stroke="#ffc0b8" stroke-width="4" stroke-linecap="round"/>
+    </g><rect x="71" y="160" width="114" height="31" rx="4" fill="#8c2635"/><text x="128" y="181" text-anchor="middle" font-family="monospace" font-size="17" font-weight="bold" fill="#fff1ed">EMBLE</text></svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 300 256">
+      <title>FBI Field Office - folder-casefiles</title><path d="M19 62Q19 43 39 43H97L118 62H254Q274 62 274 82V208Q274 227 254 227H39Q19 227 19 208Z" fill="#304f65" stroke="#8fa6b5" stroke-width="5"/>
+      <path d="M24 105H270V208Q270 222 252 222H42Q24 222 24 208Z" fill="#142634"/>
+      <path d="M32 114H262" stroke="#8fa6b5" stroke-width="2" opacity=".7"/>
+      <g transform="translate(81 165) scale(0.92)">
+      <circle r="33" fill="#0a141c" stroke="#8fa6b5" stroke-width="3"/>
+      <circle r="26" fill="none" stroke="#304f65" stroke-width="2"/>
+      <path d="M-12 -6 L0 -19 L12 -6 L9 15 L0 21 L-9 15Z" fill="#304f65" stroke="#eaf1f5" stroke-width="2"/>
+      <path d="M-6 0H6 M0 -7V13" stroke="#eaf1f5" stroke-width="2"/>
+      <text y="-23" text-anchor="middle" font-size="8" font-family="sans-serif" font-weight="bold" fill="#eaf1f5">FBI</text>
+      </g> <rect x="150" y="140" width="94" height="46" rx="6" fill="#0a141c" stroke="#8fa6b5" stroke-width="2"/>
+      <text x="197" y="169" text-anchor="middle" font-family="monospace" font-weight="bold" font-size="17" fill="#eaf1f5">CASE</text></svg>
