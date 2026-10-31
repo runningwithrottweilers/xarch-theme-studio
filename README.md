@@ -1,10 +1,20 @@
 # X-ARCH Theme Studio
 
-**Version 0.1.0-beta**
+**Version 0.5.0-beta**
 
 A desktop theme and folder icon customization application for Linux, featuring a GTK4 graphical interface and a Rust backend.
 
 Developed by **Artur Maciejewski** under the **RUNNING WITH ROTTWEILERS** project.
+
+## Download v0.5.0-beta
+
+Pre-release packages for Linux x86_64:
+
+- [Download AppImage](https://github.com/runningwithrottweilers/xarch-theme-studio/releases/download/v0.5.0-beta/X-ARCH_Theme_Studio-v0.5.0-beta-x86_64.AppImage)
+- [Download Flatpak](https://github.com/runningwithrottweilers/xarch-theme-studio/releases/download/v0.5.0-beta/X-ARCH-Theme-Studio-v0.5.0-beta-x86_64.flatpak)
+- [Release notes and checksums](https://github.com/runningwithrottweilers/xarch-theme-studio/releases/tag/v0.5.0-beta)
+
+This beta has not been validated across all Linux desktop environments.
 
 ## Features
 
